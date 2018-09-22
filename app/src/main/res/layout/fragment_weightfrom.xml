@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:text="Back"
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/weight_from_back_btn" />
+
+    <EditText
+        android:hint="@string/date"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/date" />
+
+    <EditText
+        android:hint="@string/weight"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/weight_from_day" />
+
+    <Button
+        android:text="บันทึก"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/save_btn"
+        android:layout_gravity="center"/>
+</LinearLayout>

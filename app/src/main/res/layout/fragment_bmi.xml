@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="Back"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_back" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:hint="@string/height"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_name_height"
+                android:layout_gravity="center"
+                android:layout_width="285dp"
+                android:id="@+id/user_height"/>
+            <EditText
+                android:hint="@string/weight"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_name_weight"
+                android:layout_gravity="center"
+                android:layout_width="285dp"
+                android:id="@+id/user_weight"/>
+
+            <Button
+                android:text="CALCULATE"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/bmi_calculate_btn" />
+
+            <TextView
+                android:text="Your BMI"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textSize="25dp"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:text="26.26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_bmi"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/fragment_bmi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+</LinearLayout>

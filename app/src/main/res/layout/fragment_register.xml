@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30dp">
+            <EditText
+                android:id="@+id/register_mail"
+                android:inputType="textWebEmailAddress"
+                android:hint="@string/register_email"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_name_email"
+                android:layout_gravity="center"
+                android:layout_width="285dp" />
+
+            <EditText
+                android:id="@+id/register_password"
+                android:hint="@string/register_password"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_name_password"
+                android:layout_gravity="center"
+                android:layout_width="285dp"
+                android:inputType="textPassword"/>
+            <EditText
+                android:id="@+id/register_re_password"
+                android:hint="@string/register_re_password"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_name_password"
+                android:layout_gravity="center"
+                android:layout_width="285dp"
+                android:inputType="textPassword"/>
+            <Button
+                android:text="REGISTER NEW ACCOUNT"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/register_register_btn" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!--<FrameLayout-->
+        <!--android:id="@+id/register_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></FrameLayout>-->
+
+</LinearLayout>

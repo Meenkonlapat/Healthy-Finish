@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Healthy</string>
+    <string name="user_id">User Id</string>
+    <string name="user_name">Name</string>
+    <string name="user_age">Age</string>
+    <string name="weight">Weight(kg)</string>
+    <string name="height">Height(cm)</string>
+    <string name="user_password">Password</string>
+    <string name="date">วันที่ชั่ง</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Password</string>
+    <string name="register_re_password">Re-Password</string>
+</resources>
