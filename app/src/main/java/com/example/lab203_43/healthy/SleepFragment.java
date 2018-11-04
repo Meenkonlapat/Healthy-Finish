@@ -23,7 +23,7 @@ public class SleepFragment extends android.support.v4.app.Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         myDB = getActivity().openOrCreateDatabase("my.db", Context.MODE_PRIVATE, null);
-        myDB.execSQL("Create table if not exists sleep (id INTEGER PRIMARY KEY AUTOINCREMENT, date VARCHAR(10), toBedTime VARCHAR(5), awakeTime VARCHAR(5))");
+        myDB.execSQL("CREATE TABLE IF NOT EXISTS sleep (id INTEGER PRIMARY KEY AUTOINCREMENT, date VARCHAR(10), toBedTime VARCHAR(5), awakeTime VARCHAR(5))");
 
     }
 
@@ -42,8 +42,8 @@ public class SleepFragment extends android.support.v4.app.Fragment {
     }
     private void InitBackButton()
     {
-        Button addSleepButton = (Button) getView().findViewById(R.id.add_sleep_back_button);
-        addSleepButton.setOnClickListener(new View.OnClickListener() {
+        Button backButton = (Button) getView().findViewById(R.id.sleep_button_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity()

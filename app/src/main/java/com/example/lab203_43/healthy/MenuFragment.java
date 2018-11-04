@@ -79,6 +79,7 @@ public class MenuFragment extends Fragment{
                                 .addToBackStack(null)
                                 .commit();
                         Log.d("USER", "GO TO SLEEP");
+                        break;
                     case "Sign Out" :
                         mAuth.signOut();
                         getActivity().getSupportFragmentManager()
