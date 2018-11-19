@@ -53,67 +53,46 @@ public class RegisterFragment extends Fragment {
                 String _passwordString = _password.getText().toString();
                 String _rePasswordString = _rePassword.getText().toString();
 
-                if(_passwordString.equals(_rePasswordString)){
-                    mAuth.signOut();
+                if (_emailString.isEmpty() || _passwordString.isEmpty() || _rePasswordString.isEmpty())
+                {
+                    Toast.makeText(getContext(), "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_SHORT).show();
+                    Log.d("register", "some field is empty");
+                }
+                else if (_passwordString.length() < 6)
+                {
+                    Toast.makeText(getContext(), "password ต้องยาวอย่างน้อย 6 ตัวอักษร", Toast.LENGTH_SHORT).show();
+                    Log.d("register", "password length too short");
+                }
+                else if (!_passwordString.equals(_rePasswordString))
+                {
+                    Toast.makeText(getContext(), "confirm password ผิด", Toast.LENGTH_SHORT).show();
+                    Log.d("register", "confirm password not equal to password");
+                }
+                else if (_emailString.equals("admin"))
+                {
+                    Toast.makeText(getContext(), "user นี้มีอยู่ในระบบแล้ว", Toast.LENGTH_SHORT).show();
+                    Log.d("register", "username already existed");
+                }
+                else {
                     mAuth.createUserWithEmailAndPassword(_emailString, _passwordString).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             sendVerfifiedEmail(authResult.getUser());
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.main_view, new LoginFragment())
+                                    .commit();
+                            mAuth.signOut();
+                            Log.d("register", "register success");
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getActivity(), "ERROR = " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Error : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Log.d("register", "register failed.Error :" + e.getMessage());
                         }
                     });
-
-
-
                 }
-                else if ((_passwordString.length() < 6) || (_rePasswordString.length() < 6)){
-                    Toast.makeText(getActivity(), "กรุณาใส่ให้ครบ 6 ตัว" , Toast.LENGTH_SHORT).show();
-                    Log.d("USER", "Password below 6 words");
-                }
-
-                else{
-                    Toast.makeText(getActivity(), "กรณาใส่พาสเวิร์ดให้ตรงกัน", Toast.LENGTH_SHORT).show();
-                    Log.d("USER", "Password Not match");
-                }
-//                EditText _userId = (EditText) getView().findViewById(R.id.user_id);
-//                EditText _userName = (EditText) getView().findViewById(R.id.user_name);
-//                EditText _userAge = (EditText) getView().findViewById(R.id.user_age);
-//                EditText _password = (EditText) getView().findViewById(R.id.user_password);
-//                String _userIdStr = _userId.getText().toString();
-//                String _userNameStr = _userName.getText().toString();
-//                String _userAgeStr = _userAge.getText().toString();
-//                String _passwordStr = _password.getText().toString();
-//                if (_userIdStr.isEmpty() || _userNameStr.isEmpty() || _userAgeStr.isEmpty() || _passwordStr.isEmpty()) {
-//                    if (_userNameStr.isEmpty()) {
-//                        Log.d("USER", "USER ALREADY EXIST");
-//                    }
-//                    Toast.makeText(
-//                            getActivity(),
-//                            "กรุณาระบุข้อมูลให้ครบถ้วน",
-//                            Toast.LENGTH_SHORT
-//                    ).show();
-//                } else {
-//                    if (_userIdStr.equals("admin")) {
-//                        Toast.makeText(
-//                                getActivity(),
-//                                "user นี้มีอยู่ในระบบแล้ว",
-//                                Toast.LENGTH_SHORT
-//                        ).show();
-//                        Log.d("USER", "USER ALREADY EXIST");
-//                    }
-//                    else {
-//                        getActivity().getSupportFragmentManager()
-//                                .beginTransaction()
-//                                .replace(R.id.main_view, new BMIfragment())
-//                                .addToBackStack(null)
-//                                .commit();
-//                        Log.d("USER", "GOTO BMI”");
-//                    }
-//                }
             }
         });
     }

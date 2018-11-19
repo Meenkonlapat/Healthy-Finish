@@ -30,6 +30,7 @@ public class MenuFragment extends Fragment{
         _menu.add("BMI");
         _menu.add("Weight");
         _menu.add("Sleep");
+        _menu.add("Post");
         _menu.add("Sign Out");
     }
     @Nullable
@@ -79,6 +80,14 @@ public class MenuFragment extends Fragment{
                                 .addToBackStack(null)
                                 .commit();
                         Log.d("USER", "GO TO SLEEP");
+                        break;
+                    case "Post" :
+                        getActivity().getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.main_view, new PostFragment())
+                                .addToBackStack(null)
+                                .commit();
+                        Log.d("USER", "GO TO POST");
                         break;
                     case "Sign Out" :
                         mAuth.signOut();
